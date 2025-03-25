@@ -1,12 +1,13 @@
 # Keycloak - Gestion de l'Authentification et de l'Autorisation
-
-## 1. Qu'est-ce que Keycloak ?
+# 📖 theorie :
+## 1. Qu'est-ce que Keycloak ❓❓
 Keycloak est une solution IAM (Identity and Access Management) qui permet de gérer l'authentification et l'autorisation de manière centralisée pour toutes les applications.
 
+![objectif generale](objectif.svg)
 Keycloak prend en charge principalement trois services essentiels (AAA) :
 
-- **Authentification** : Vérifie l'identité des utilisateurs en utilisant différentes méthodes telles que l'authentification classique avec mot de passe, le Single Sign-On (SSO) ou l'authentification multifactorielle (MFA).
-- **Autorisation** : Gère les droits d'accès des utilisateurs aux différentes ressources ou applications en fonction des rôles et des permissions associés à chaque utilisateur.
+- 🪪🔐 **Authentification**  : Vérifie l'identité des utilisateurs en utilisant différentes méthodes telles que l'authentification classique avec mot de passe, le Single Sign-On (SSO) ou l'authentification multifactorielle (MFA).
+- 👮🏻 **Autorisation** : Gère les droits d'accès des utilisateurs aux différentes ressources ou applications en fonction des rôles et des permissions associés à chaque utilisateur.
 - **Accounting** : Enregistre les actions des utilisateurs dans l'application et gère les sessions pour voir les utilisateurs connectés en temps réel ainsi que les logs d'événements (tentatives de connexion, échecs d'authentification, etc.).
 
 Keycloak prend également en charge les fonctionnalités suivantes :
@@ -20,6 +21,7 @@ Keycloak prend en charge plusieurs protocoles standard pour l'authentification e
 - **OAuth 2.0** : Protocole d'autorisation permettant aux applications d'accéder aux ressources protégées sans exposer les informations d'identification des utilisateurs.
 - **OpenID Connect (OIDC)** : Extension d'OAuth 2.0 permettant l'authentification des utilisateurs et la récupération de leurs informations de profil.
 - **SAML (Security Assertion Markup Language)** : Protocole utilisé pour le SSO entre applications et fournisseurs d'identité.
+- **LDAP** : 
 
 ---
 
@@ -32,15 +34,23 @@ Keycloak utilise plusieurs types de tokens pour gérer l'authentification et l'a
 Ces tokens sont généralement au format JWT (JSON Web Token) et sont signés pour garantir leur intégrité et leur sécurité.
 
 ---
-## 4. conceptes generales 
+## 4. Flux d'authentification
+![Flux d'authentification](fluxAuth.png)
+---
+
+## 5. conceptes generales 
 
 - Realm
 - Client 
 - Users
-- 
-# Pratique : Installation et Configuration de Keycloak
+- Roles
+- Clims
+- Client Scoop
+- Mappers
 
-## 1. Installation de Keycloak
+# 🔨 Pratique : Installation et Configuration de Keycloak
+
+## 1. ⏬ Installation de Keycloak 
 
 Vous avez deux options pour installer Keycloak :
 - Télécharger, installer et configurer Keycloak manuellement.
@@ -49,11 +59,11 @@ Vous avez deux options pour installer Keycloak :
 docker compose -f 'docker-compose.yaml' up -d --build
 ```
 ### Installation avec Docker
-Dans cet exemple, nous utiliserons une image Docker de Keycloak (voir `docker-compose.yml`).
+ 📍 Dans cet exemple, nous utiliserons une image Docker de Keycloak (voir `docker-compose.yml`) ;  Avec l'image Docker, aucune configuration manuelle n'est requise. Il suffit de lancer l'image et de gérer votre conteneur.
 
-✅ Avec l'image Docker, aucune configuration manuelle n'est requise. Il suffit de lancer l'image et de gérer votre conteneur.
+---
 
-## 2. Configuration de Base de Keycloak
+## 2. ⚙️ Configuration de Base de Keycloak
 
 ### 🔹 Qu'est-ce qu'un Realm ?
 Un **Realm** est une instance de gestion des utilisateurs, rôles et clients dans Keycloak. Chaque Realm est isolé des autres.
@@ -145,18 +155,14 @@ body:
 ```
 
 ---
-
-## 📌 Ressources Complémentaires
-🎥 **Tutoriel recommandé** : [Regarder sur YouTube](https://youtu.be/toEVcosbedw?si=5SDDEFJYILUofbgU)
-
----
-
-🚀 **Vous êtes maintenant prêt à intégrer Keycloak dans votre projet !**
-
-## Bute  : 
-adding Clim , Scoop , mappers ...
-![Bute golabale ](./image-30.png)
-
-
 ### 📌 Conclusion
 Keycloak est une solution robuste et flexible pour la gestion des identités et des accès. Grâce à ses fonctionnalités avancées telles que le SSO, la gestion des rôles et permissions, ainsi que le support des protocoles standards, il est un excellent choix pour les entreprises cherchant à sécuriser leurs applications de manière centralisée.
+
+---
+## 🚀🚀🚀  To do   : 
+
+![Bute](./image-30.png)
+
+## 📌 Ressources Complémentaires
+🎥 **Tutoriel recommandé** : [Tuto Keycloak](https://youtu.be/toEVcosbedw?si=5SDDEFJYILUofbgU)
+
