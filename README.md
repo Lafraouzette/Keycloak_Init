@@ -45,8 +45,53 @@ Ces tokens sont généralement au format JWT (JSON Web Token) et sont signés po
 - Users
 - Roles
 - Clims
-- Client Scoop
+- Client scopes (ou périmètres) ; Ces scopes déterminent les informations ou les permissions que votre application peut accéder après une authentification réussie.
 - Mappers
+
+### **Qu'est-ce qu'un Mapper dans Keycloak ?**  
+
+Dans **Keycloak**, un **mapper** est un mécanisme qui permet d'ajouter, modifier ou transformer les **informations contenues dans un token** (Access Token, ID Token ou User Info).  
+
+👉 **Objectif** : Personnaliser les informations envoyées à l'application cliente lors de l'authentification.  
+
+---
+
+### **📌 Types de Mappers dans Keycloak**
+Il existe plusieurs types de mappers, les plus courants sont :  
+
+#### **1. Role Mapper**  
+- Permet d’inclure les **rôles** d’un utilisateur dans le **token JWT**.  
+- Exemple : Ajouter le rôle `admin` dans le token si l'utilisateur a ce rôle dans Keycloak.
+
+#### **2. User Attribute Mapper**  
+- Permet d’inclure les **attributs utilisateurs** dans le token.  
+- Exemple : Ajouter un attribut `department` pour inclure le département de l’utilisateur.
+
+#### **3. Hardcoded Claim Mapper**  
+- Ajoute une **valeur fixe** dans le token.  
+- Exemple : Ajouter un champ `organization: "OCP"` dans tous les tokens.
+
+#### **4. Audience Mapper**  
+- Ajoute un **audience claim (aud)** pour restreindre les clients pouvant utiliser le token.
+
+#### **5. Custom Protocol Mapper**  
+- Permet de définir un mapper personnalisé en Java pour un traitement spécifique.
+
+---
+
+### **📌 Exemple d'utilisation : Ajouter les Rôles dans le Token**
+1️⃣ Va dans **Clients** > Sélectionne ton client (`spring-client`).  
+2️⃣ Onglet **Mappers** > **Create**.  
+3️⃣ Remplis les champs :  
+   - **Name** : `roles-mapper`
+   - **Mapper Type** : `User Realm Role`
+   - **Token Claim Name** : `roles`
+   - **Add to ID Token** : ✅ Oui  
+   - **Add to Access Token** : ✅ Oui  
+   - **Multivalued** : ✅ Oui  
+4️⃣ **Sauvegarde**.  
+
+✅ Maintenant, les rôles seront inclus dans le **token JWT**, et ton application pourra les utiliser pour la redirection. 🚀 
 
 # 🔨 Pratique : Installation et Configuration de Keycloak
 
